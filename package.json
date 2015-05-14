@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "tape"
+    "test": "node test/test.js --cov",
+    "cover": "./node_modules/.bin/istanbul cover node test/test.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,11 @@
   "bugs": {
     "url": "https://github.com/dwyl/ordenado/issues"
   },
-  "homepage": "https://github.com/dwyl/ordenado"
+  "homepage": "https://github.com/dwyl/ordenado",
+  "devDependencies": {
+    "blanket": "^1.1.7",
+    "istanbul": "^0.3.14",
+    "qunit-tap": "^1.5.0",
+    "qunitjs": "^1.18.0"
+  }
 }

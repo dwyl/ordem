@@ -1,5 +1,9 @@
+require("blanket")
 var order    = require('../');
-var assert   = require('assert');
+var QUnit    = require('qunitjs');        // require QUnit and all its friends
+// QUnit.setup({ coverage: true });          //
+require('qunit-tap')(QUnit, console.log); // tell qunit-tap to use console.log for test output
+
 var actual   = [];
 var expected = [ 'one', 'two', 'three' ];
 
@@ -23,13 +27,18 @@ order([
   }
 ], function (err, result) {
   // result now equals 'done'
-  console.log(err, result);
   check();
+  console.log(err, result);
 });
 
 var check = function(){
-  for(i=0; i<actual.length; i++){
-    assert.equal(actual[i],expected[i], '>'+i);
-  }
-  console.log(actual);
+  // write a few tests
+  test("results appear in the order we expect them", function() {
+    for(i=0; i<actual.length; i++){
+      equal(actual[i],expected[i], ''+i + ' is ' + actual[i] +' | expected: '+ expected[i]);
+    }
+  });
+  // console.log(actual);
 }
+
+QUnit.load(); // run our test suite.
