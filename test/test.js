@@ -24,11 +24,12 @@ order([
 ], function (err, result) {
   // result now equals 'done'
   console.log(err, result);
-
+  check();
 });
 
 var check = function(){
   for(i=0; i<actual.length; i++){
     assert.equal(actual[i],expected[i], '>'+i);
   }
+  console.log(actual);
 }

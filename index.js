@@ -1,7 +1,11 @@
-// MIT license (by Elan Shanker).
-(function(globals) {
+// MIT license (by Elan Shanker) >> adapted from + comments added by us
+(function(global) {
   'use strict';
 
+  /**
+   * use the fastest native method for executing a function
+   * on the next tick of the JS event loop.
+   */
   var nextTick = function (fn) {
     if (typeof setImmediate === 'function') {
       setImmediate(fn);
@@ -32,10 +36,10 @@
     return Object.prototype.toString.call(maybeArray) === '[object Array]';
   };
 
-  var waterfall = function (tasks, callback) {
+  var ordenado = function (tasks, callback) {
     callback = callback || function () {};
     if (!_isArray(tasks)) {
-      var err = new Error('First argument to waterfall must be an array of functions');
+      var err = new Error('First argument to ordenado must be an array of functions');
       return callback(err);
     }
     if (!tasks.length) {
@@ -63,13 +67,16 @@
     wrapIterator(makeIterator(tasks))();
   };
 
+  /**
+   * export the module for various platforms
+   */
   if (typeof define !== 'undefined' && define.amd) {
     define([], function () {
-      return waterfall;
+      return ordenado;
     }); // RequireJS
   } else if (typeof module !== 'undefined' && module.exports) {
-    module.exports = waterfall; // CommonJS
+    module.exports = ordenado; // CommonJS
   } else {
-    globals.asyncWaterfall = waterfall; // <script>
+    global.asyncordenado = ordenado; // <script> (browser)
   }
 })(this);
