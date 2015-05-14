@@ -10,6 +10,7 @@ statements are called in succession, **results** ***can*** **be returned** in an
 Often we need to run a sequence of tasks in a *specific* order.
 
 
+
 ## Background Reading
 
 + When is JavaScript Synchrnous?

@@ -1,0 +1,28 @@
+{
+  "name": "ordenado",
+  "version": "1.0.0",
+  "description": "ordered task runner for node.js and browser",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tape"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dwyl/ordenado.git"
+  },
+  "keywords": [
+    "synchronous",
+    "ordered",
+    "task",
+    "runner"
+  ],
+  "author": "nelsonic <nodecoder@gmail.com> (https://github.com/nelsonic)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwyl/ordenado/issues"
+  },
+  "homepage": "https://github.com/dwyl/ordenado"
+}
