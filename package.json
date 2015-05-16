@@ -1,6 +1,6 @@
 {
   "name": "ordenado",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ordered task runner for node.js and browser",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "node test/test.js --cov",
-    "cover": "./node_modules/.bin/istanbul cover node test/test.js"
+    "cover": "istanbul cover test/test.js"
   },
   "repository": {
     "type": "git",

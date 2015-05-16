@@ -1,7 +1,5 @@
-require("blanket")
-var order    = require('../');
+var order    = require('../');            // load the module
 var QUnit    = require('qunitjs');        // require QUnit and all its friends
-// QUnit.setup({ coverage: true });          //
 require('qunit-tap')(QUnit, console.log); // tell qunit-tap to use console.log for test output
 
 var actual   = [];
@@ -28,7 +26,7 @@ order([
 ], function (err, result) {
   // result now equals 'done'
   check();
-  console.log(err, result);
+  callback(err, result);
 });
 
 var check = function(){

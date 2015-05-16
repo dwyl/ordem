@@ -2,20 +2,6 @@
 (function(global) {
   'use strict';
 
-  /**
-   * use the fastest native method for executing a function
-   * on the next tick of the JS event loop.
-   */
-  var nextTick = function (fn) {
-    if (typeof setImmediate === 'function') {
-      setImmediate(fn);
-    } else if (typeof process !== 'undefined' && process.nextTick) {
-      process.nextTick(fn);
-    } else {
-      setTimeout(fn, 0);
-    }
-  };
-
   var makeIterator = function (tasks) {
     var makeCallback = function (index) {
       var fn = function () {
@@ -58,9 +44,9 @@
           } else {
             args.push(callback);
           }
-          nextTick(function () {
+          setTimeout(function () {
             iterator.apply(null, args);
-          });
+          },0);
         }
       };
     };
