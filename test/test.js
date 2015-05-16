@@ -9,64 +9,27 @@ test("run module without callback function", function(assert) {
 });
 
 test("run module with string in place of tasks array", function(assert) {
-  var done     = assert.async(); // see: https://api.qunitjs.com/async/
+
   var expected = "First argument to ordenado must be an array of functions";
-
-  function check(err) {
-    assert.equal(err.message, expected, 'Expected ERROR: '+ expected);
-    done();
-  }
-
-  function callback(){
-    console.log(arguments);
-  }
   // exercise the function with a string instead of an array
-  ordenado('this should fail array checks!', function (err, result) {
+  ordenado('this should fail array checks!', function callback(err, result) {
     // result now equals 'done'
-    check(err);
-    callback(err, result);
+    assert.equal(err.message, expected, 'Expected ERROR: '+ expected);
   });
+
 });
 
 test("run module without any tasks (expect error message)", function(assert) {
-  var done     = assert.async(); // see: https://api.qunitjs.com/async/
+  // var done     = assert.async(); // see: https://api.qunitjs.com/async/
   var expected = "ordenado expects at least one task (function) to run";
 
-  function check(err) {
-    assert.equal(err.message, expected, ' expected: '+ expected);
-    done();
-  }
-
-  function callback(){
-    console.log(arguments);
-  }
   // exercise the function without any tasks
-  ordenado([], function (err, result) {
-    // result now equals 'done'
-    check(err);
-    callback(err, result);
+  ordenado([], function callback(err, result) {
+    assert.equal(err.message, expected, 'Expected: '+ expected);
+    // done();
   });
 });
 
-test("run module without any tasks (expect error message)", function(assert) {
-  var done     = assert.async(); // see: https://api.qunitjs.com/async/
-  var expected = "ordenado expects at least one task (function) to run";
-
-  function check(err) {
-    assert.equal(err.message, expected, ' expected: '+ expected);
-    done();
-  }
-
-  function callback(){
-    console.log(arguments);
-  }
-  // exercise the function without any tasks
-  ordenado([], function (err, result) {
-    // result now equals 'done'
-    check(err);
-    callback(err, result);
-  });
-});
 
 test("Simulate error in one of the tasks", function(assert) {
   var done     = assert.async(); // see: https://api.qunitjs.com/async/
@@ -92,8 +55,7 @@ test("Simulate error in one of the tasks", function(assert) {
     // result now equals 'done'
     // console.log(err);
     assert.equal(err.message, 'second task failed', 'Second task failed (as expected!)')
-    assert.deepEqual(actual, expected, 'Only one task succeeded')
-    // callback(err, result);
+    assert.deepEqual(actual, expected, 'Expected: Only one task succeeded')
     done();
   });
 });
@@ -108,12 +70,8 @@ test("Results appear in the order we expect them", function(assert) {
     for(i=0; i<actual.length; i++){
       assert.equal(actual[i],expected[i], ''+i + ' is ' + actual[i] +' | expected: '+ expected[i]);
     }
-    done();
   }
 
-  function callback(err, etc){
-    console.log(arguments);
-  }
   // exercise the function
   ordenado([
     function(callback){
@@ -129,16 +87,12 @@ test("Results appear in the order we expect them", function(assert) {
       actual.push('three');
       callback(null, 'done');
     }
-  ], function (err, result) {
+  ], function callback(err, result) {
     // result now equals 'done'
     check();
-    callback(err, result);
+    done()
   });
 
 });
-
-// math operator presedence test?
-
-
 
 QUnit.load(); // run our test suite.

@@ -17,6 +17,7 @@ We wrote this for [**alvo**](https://github.com/dwyl/alvo) our ***automated brow
 
 ## What?
 
+Lets you run a series of JavaScript functions/methods in a specific order using a simple api.
 
 
 ## How?
