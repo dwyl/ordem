@@ -71,37 +71,30 @@ test("run module without any tasks (expect error message)", function(assert) {
 test("Simulate error in one of the tasks", function(assert) {
   var done     = assert.async(); // see: https://api.qunitjs.com/async/
   var actual   = [];
-  var expected = [ 'one', 'two', 'three' ];
+  var expected = [ 'one' ]; // only the first task succeeds
 
-  function check() {
-    for(i=0; i<actual.length; i++){
-      assert.equal(actual[i],expected[i], ''+i + ' is ' + actual[i] +' | expected: '+ expected[i]);
-    }
-    done();
-  }
-
-  function callback(err, etc){
-    console.log(arguments);
-  }
   // exercise the function
   ordenado([
     function(callback){
       actual.push('one');
       callback(null, 'one', 'two');
     },
-    function(arg1, arg2, callback){
-      actual.push('two');
-      callback(null, 'three');
+    function(err, arg, callback){
+      var err = new Error('second task failed');
+      return callback(err);
     },
     function(arg1, callback){
-      // arg1 now equals 'three'
+      // this should never get run!
       actual.push('three');
       callback(null, 'done');
     }
-  ], function (err, result) {
+  ], function callback(err, result) {
     // result now equals 'done'
-    check();
-    callback(err, result);
+    // console.log(err);
+    assert.equal(err.message, 'second task failed', 'Second task failed (as expected!)')
+    assert.deepEqual(actual, expected, 'Only one task succeeded')
+    // callback(err, result);
+    done();
   });
 });
 

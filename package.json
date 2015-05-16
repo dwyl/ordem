@@ -1,14 +1,15 @@
 {
   "name": "ordenado",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ordered task runner for node.js and browser",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "spec": "istanbul cover test/test.js  | tap-spec",
     "test": "istanbul cover test/test.js",
-    "cover": "istanbul cover test/test.js"
+    "cover": "istanbul cover test/test.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "blanket": "^1.1.7",
     "istanbul": "^0.3.14",
     "qunit-tap": "^1.5.0",
-    "qunitjs": "^1.18.0"
+    "qunitjs": "^1.18.0",
+    "tap-spec": "^3.0.0"
   }
 }

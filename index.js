@@ -41,10 +41,9 @@
     }
     var wrapIterator = function (iterator) {
       return function (err) {
-        // if (err) {
-        //   callback.apply(null, arguments);
-        //   callback = function () {};
-        // } else {
+        if (err) {
+          callback.apply(err, arguments);
+        } else {
           var args = Array.prototype.slice.call(arguments, 1);
           var next = iterator.next();
           if (next) {
@@ -55,7 +54,7 @@
           setTimeout(function () {
             iterator.apply(null, args);
           },0);
-        // }
+        }
       };
     };
     wrapIterator(iterator(tasks))();
