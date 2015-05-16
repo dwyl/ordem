@@ -31,3 +31,5 @@ http://stackoverflow.com/questions/2035645/when-is-javascript-synchronous
 http://stackoverflow.com/questions/2734025/is-javascript-guaranteed-to-be-single-threaded
 + IIFE with global 'this':
 http://stackoverflow.com/questions/10314891/how-to-use-functionglobal-this
++ What is the difference between call and apply?
+http://stackoverflow.com/questions/1986896/what-is-the-difference-between-call-and-apply
