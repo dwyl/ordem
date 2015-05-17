@@ -24,7 +24,7 @@ We wrote this for [**alvo**](https://github.com/dwyl/alvo) our ***automated brow
 
 ## What?
 
-Lets you run a series of JavaScript functions/methods in a specific order and then call a callback at the end.
+Lets you run a series of JavaScript functions/methods in a specific order and then execute a callback (*once*) at the end.
 
 Tested in node. [![Node version](https://img.shields.io/node/v/ordenado.svg?style=flat)](http://nodejs.org/download/)
 [![Build Status](https://travis-ci.org/dwyl/ordenado.svg)](https://travis-ci.org/dwyl/ordenado)
@@ -83,3 +83,9 @@ http://stackoverflow.com/questions/10314891/how-to-use-functionglobal-this
 http://stackoverflow.com/questions/1986896/what-is-the-difference-between-call-and-apply
 + what is the difference in throw new Error and throw(object):  http://stackoverflow.com/questions/9156176/javascript-what-is-the-difference-in-throw-new-error-and-throwobject
 + Which Async Javascript Libraries Should I Use? https://www.airpair.com/javascript/posts/which-async-javascript-libraries-should-i-use ( a better *first* question would be: when do I need to run tasks asynchronously...? )
+
+## Name?
+
+All the "good" names are taken.  
+So we used the Portuguese/Spanish word for "*orderly*"
+see: https://translate.google.com/#auto/en/ordenado
