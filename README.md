@@ -14,17 +14,17 @@
 
 ## Why?
 
-JavaScript is *synchrnous* and single-threaded, but when multiple
-statements are called in succession, **results** ***can*** **be returned** in an
-***unexpected order***.
-Often we need to run a sequence of tasks in a *specific* order.
+JavaScript is ***synchronous*** *and* ***single-threaded***, but when multiple
+statements are called in succession,  
+**results** ***can*** **be returned** in an
+***unexpected order***
+ ... Often we need to run a sequence of tasks in a *specific* order.
 
 We wrote this for [**alvo**](https://github.com/dwyl/alvo) our ***automated browser test runner***. But its *useable* ***anywhere that runs JavaScript***!
 
-
 ## What?
 
-Lets you run a series of JavaScript functions/methods in a specific order using a simple api.
+Lets you run a series of JavaScript functions/methods in a specific order and then call a callback at the end.
 
 Tested in node. [![Node version](https://img.shields.io/node/v/ordenado.svg?style=flat)](http://nodejs.org/download/)
 [![Build Status](https://travis-ci.org/dwyl/ordenado.svg)](https://travis-ci.org/dwyl/ordenado)
@@ -73,7 +73,7 @@ for browser usage see: example/**index.html**
 
 ## Background Reading
 
-+ When is JavaScript Synchrnous?
++ When is JavaScript Synchronous?
 http://stackoverflow.com/questions/2035645/when-is-javascript-synchronous
 + Is javascript guaranteed to be single-threaded?
 http://stackoverflow.com/questions/2734025/is-javascript-guaranteed-to-be-single-threaded
