@@ -6,7 +6,9 @@ curl https://saucelabs.com/rest/v1/ordem/js-tests \
   "platforms": [
     ["Windows 8.1", "internet explorer", "11"],
     ["Windows 8", "internet explorer", "10"],
-    ["Windows 8.1", "firefox", "beta"],
+    ["Windows 7", "internet explorer", "9"],
+    ["Windows 7", "internet explorer", "8"],
+    ["Windows XP", "internet explorer", "7"],
     ["Windows 8", "firefox", "37"],
     ["Windows 7", "firefox", "32"],
     ["OS X 10.8", "safari", "6"],
@@ -22,5 +24,5 @@ curl https://saucelabs.com/rest/v1/ordem/js-tests \
   "framework": "qunit",
 	"name":"ordem",
 	"public": "public",
-	"build": "002"
+	"build": "004"
 }'
