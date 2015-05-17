@@ -1,7 +1,7 @@
 {
-  "name": "ordenado",
-  "version": "1.0.5",
-  "description": "ordered task runner for node.js and browser",
+  "name": "ordem",
+  "version": "1.0.6",
+  "description": "simple ordered task runner for node.js and browser",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -9,27 +9,28 @@
   "scripts": {
     "test": "istanbul cover test/test.js",
     "coverage": "istanbul cover ./test/*.js && istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN=b359ba902e01c821decf617fb77dbb329dd70cdd823b1096ec3585cd571183c8 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info",
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=4cf72310af534f72fcd2829fa59235f1e3311198cb6b6f48a6aca9a19711882d ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info",
     "start": "node example/simple-static-server-for-saucelabs.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dwyl/ordenado.git"
+    "url": "https://github.com/dwyl/ordem.git"
   },
   "keywords": [
     "synchronous",
     "ordered",
     "task",
     "runner",
-    "async but much simpler",
+    "async",
+    "like async.series or async.waterfall but much simpler",
     "Zero Dependencies"
   ],
   "author": "nelsonic <contact.nelsonic@gmail.com> (https://github.com/nelsonic)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dwyl/ordenado/issues"
+    "url": "https://github.com/dwyl/ordem/issues"
   },
-  "homepage": "https://github.com/dwyl/ordenado",
+  "homepage": "https://github.com/dwyl/ordem",
   "devDependencies": {
     "codeclimate-test-reporter": "0.0.4",
     "istanbul": "^0.3.14",

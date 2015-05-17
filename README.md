@@ -1,15 +1,15 @@
-# ordenado
-[![Build Status](https://travis-ci.org/dwyl/ordenado.svg)](https://travis-ci.org/dwyl/ordenado)
-[![Code Climate](https://codeclimate.com/github/dwyl/ordenado/badges/gpa.svg)](https://codeclimate.com/github/dwyl/ordenado)
-[![Test Coverage](https://codeclimate.com/github/dwyl/ordenado/badges/coverage.svg)](https://codeclimate.com/github/dwyl/ordenado/coverage)
-[![Dependency Status](https://david-dm.org/dwyl/ordenado.svg)](https://david-dm.org/dwyl/ordenado)
-[![devDependency Status](https://david-dm.org/dwyl/ordenado/dev-status.svg)](https://david-dm.org/dwyl/ordenado#info=devDependencies)
-[![bitHound Score](https://www.bithound.io/github/dwyl/ordenado/badges/score.svg)](https://www.bithound.io/github/dwyl/ordenado)
+# ordem
+[![Build Status](https://travis-ci.org/dwyl/ordem.svg)](https://travis-ci.org/dwyl/ordem)
+[![Code Climate](https://codeclimate.com/github/dwyl/ordem/badges/gpa.svg)](https://codeclimate.com/github/dwyl/ordem)
+[![Test Coverage](https://codeclimate.com/github/dwyl/ordem/badges/coverage.svg)](https://codeclimate.com/github/dwyl/ordem/coverage)
+[![Dependency Status](https://david-dm.org/dwyl/ordem.svg)](https://david-dm.org/dwyl/ordem)
+[![devDependency Status](https://david-dm.org/dwyl/ordem/dev-status.svg)](https://david-dm.org/dwyl/ordem#info=devDependencies)
+[![bitHound Score](https://www.bithound.io/github/dwyl/ordem/badges/score.svg)](https://www.bithound.io/github/dwyl/ordem)
 
 
 ![ducks-in-a-row](http://i.imgur.com/K6kGr3M.jpg)
 
-***ordenado*** is a ***synchronous*** (ordered) **task runner** for Node.js and Browser  
+***ordem*** is a ***synchronous*** (ordered) **task runner** for Node.js and Browser  
 ... *for when you need to have* "***all your ducks in a row***".
 
 
@@ -21,18 +21,16 @@ statements are called in succession,
 ***unexpected order***
  ... Often we need to run a sequence of tasks in a *specific* order.
 
-We wrote this for [**alvo**](https://github.com/dwyl/alvo) our ***automated browser test runner***. But its *useable* ***anywhere that runs JavaScript***!
-
 ## What?
 
 Lets you run a series of JavaScript functions/methods in a specific order and then execute a callback (*once*) at the end.
 
-***Tested*** in **node.js** [![Build Status](https://travis-ci.org/dwyl/ordenado.svg)](https://travis-ci.org/dwyl/ordenado) [![Node version](https://img.shields.io/node/v/ordenado.svg?style=flat)](http://nodejs.org/download/)
- [![npm version](https://badge.fury.io/js/ordenado.svg)](http://badge.fury.io/js/ordenado)
+***Tested*** in **node.js** [![Build Status](https://travis-ci.org/dwyl/ordem.svg)](https://travis-ci.org/dwyl/ordem) [![Node version](https://img.shields.io/node/v/ordem.svg?style=flat)](http://nodejs.org/download/)
+ [![npm version](https://badge.fury.io/js/ordem.svg)](http://badge.fury.io/js/ordem)
 
 and ***ALL teh Devices/Browsers*** via
 [***SauceLabs***](https://github.com/docdis/learn-saucelabs)
-[![Sauce Test Status](https://docs.saucelabs.com/images/reference/status-images/status-passing.3a137816.png)](https://saucelabs.com/u/ordenado)
+[![Sauce Test Status](https://docs.saucelabs.com/images/reference/status-images/status-passing.3a137816.png)](https://saucelabs.com/u/ordem)
 
 Try it yourself: https://ordenado.herokuapp.com/
 
@@ -42,7 +40,7 @@ Try it yourself: https://ordenado.herokuapp.com/
 ### install from npm
 
 ```sh
-npm install ordenado --save-dev
+npm install ordem --save-dev
 ```
 
 ### Usage
@@ -50,9 +48,9 @@ npm install ordenado --save-dev
 #### Node.js
 
 ```js
-var ordenado = require('ordenado'); // load the module
+var ordem = require('ordem'); // load the module
 
-ordenado([
+ordem([
   function(callback){
     // perform the first task
     callback(null, 'one');
@@ -73,16 +71,16 @@ ordenado([
 
 #### Browser
 
-**Tip**: don't try to load the script directly from GitHub (they don't like that...) instead use https://raw.githubusercontent.com/dwyl/ordenado/master/index.js
+**Tip**: don't try to load the script directly from GitHub (they don't like that...) instead use https://raw.githubusercontent.com/dwyl/ordem/master/index.js
 
 
 in your html:
 
 ```js
-<script src="https://raw.githubusercontent.com/dwyl/ordenado/master/index.js"> </script>
+<script src="https://raw.githubusercontent.com/dwyl/ordem/master/index.js"> </script>
 
 <script>
-  ordenado([
+  ordem([
     function(callback){
       // perform the first task
       callback(null, 'one');
@@ -110,6 +108,8 @@ see: example/**index.html** for ***copy-pasteable example code***.
 
 # tl;dr
 
+We needed this for [**alvo**](https://github.com/dwyl/alvo) our ***automated browser test runner***. But its *useable* ***anywhere that runs JavaScript***!
+
 ## Background Reading
 
 + When is JavaScript Synchronous?
@@ -127,4 +127,17 @@ http://stackoverflow.com/questions/1986896/what-is-the-difference-between-call-a
 
 All the "good" names are taken.  
 So we used the Portuguese/Spanish word for "*orderly*"
-see: https://translate.google.com/#auto/en/ordenado
+see: https://translate.google.com/#auto/en/ordem
+
+**Interesting fact**: the word *ordem* is featured on the Brazilian flag:
+![brazil flag](http://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/720px-Flag_of_Brazil.svg.png)
+
+one of only [16 countries](https://answers.yahoo.com/question/index?qid=20091110134459AAsHxyL) to feature words on a flag.
+they obviously feel quite passionately about it.
+so do we.
+
+Also, whenever I hear the word "*order*" I think of:
+
+[![Everything seems to be in order](http://i.imgur.com/jttIEf0.png)](https://youtu.be/86NkAeSxhVI?t=1m37s "Everything seems to be in order")
+
+Austin Powers 4 is "*in development*" ... http://www.imdb.com/title/tt1218992/ #[**YeahBaby**](https://www.youtube.com/watch?v=x4KEWEi5hE4)
