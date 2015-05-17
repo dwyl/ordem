@@ -6,6 +6,7 @@
 [![devDependency Status](https://david-dm.org/dwyl/ordenado/dev-status.svg)](https://david-dm.org/dwyl/ordenado#info=devDependencies)
 [![bitHound Score](https://www.bithound.io/github/dwyl/ordenado/badges/score.svg)](https://www.bithound.io/github/dwyl/ordenado)
 
+
 ![ducks-in-a-row](http://i.imgur.com/K6kGr3M.jpg)
 
 ***ordenado*** is a ***synchronous*** (ordered) **task runner** for Node.js and Browser  
@@ -26,10 +27,14 @@ We wrote this for [**alvo**](https://github.com/dwyl/alvo) our ***automated brow
 
 Lets you run a series of JavaScript functions/methods in a specific order and then execute a callback (*once*) at the end.
 
-Tested in node. [![Node version](https://img.shields.io/node/v/ordenado.svg?style=flat)](http://nodejs.org/download/)
-[![Build Status](https://travis-ci.org/dwyl/ordenado.svg)](https://travis-ci.org/dwyl/ordenado)
+***Tested*** in **node.js** [![Build Status](https://travis-ci.org/dwyl/ordenado.svg)](https://travis-ci.org/dwyl/ordenado) [![Node version](https://img.shields.io/node/v/ordenado.svg?style=flat)](http://nodejs.org/download/)
+ [![npm version](https://badge.fury.io/js/ordenado.svg)](http://badge.fury.io/js/ordenado)
 
-and browsers/devices: https://github.com/dwyl/ordenado/issues/8
+and ***ALL teh Devices/Browsers*** via
+[***SauceLabs***](https://github.com/docdis/learn-saucelabs)
+[![Sauce Test Status](https://docs.saucelabs.com/images/reference/status-images/status-passing.3a137816.png)](https://saucelabs.com/u/ordenado)
+
+Try it yourself: https://ordenado.herokuapp.com/
 
 
 ## How?
@@ -40,9 +45,9 @@ and browsers/devices: https://github.com/dwyl/ordenado/issues/8
 npm install ordenado --save-dev
 ```
 
-### usage
+### Usage
 
-in your code:
+#### Node.js
 
 ```js
 var ordenado = require('ordenado'); // load the module
@@ -66,10 +71,44 @@ ordenado([
 });
 ```
 
-for browser usage see: example/**index.html**
+#### Browser
+
+**Tip**: don't try to load the script directly from GitHub (they don't like that...) instead use https://raw.githubusercontent.com/dwyl/ordenado/master/index.js
+
+
+in your html:
+
+```js
+<script src="https://raw.githubusercontent.com/dwyl/ordenado/master/index.js"> </script>
+
+<script>
+  ordenado([
+    function(callback){
+      // perform the first task
+      callback(null, 'one');
+    },
+    function(arg1, arg2, callback){
+      // perform second task
+      callback(null, 'two');
+    },
+    function(callback){
+      // perform third task, etc.
+      callback(null, 'done');
+    }
+  ], function callback(err, result) {
+    // result now equals 'done'
+    // callback only gets called once!
+  });
+</script>
+```
+
+
+see: example/**index.html** for ***copy-pasteable example code***.
 
 <br />
 <br />
+
+# tl;dr
 
 ## Background Reading
 

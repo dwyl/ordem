@@ -87,7 +87,7 @@ test("Results appear in the order we expect them", function(assert) {
     }
     // result now equals 'done'
     for(i=0; i<actual.length; i++){
-      assert.equal(actual[i],expected[i], ''+i + ' is ' + actual[i] +' | expected: '+ expected[i]);
+      assert.equal(actual[i],expected[i], 'Result '+i+1 +' is ' + actual[i] +' | expected: '+ expected[i]);
     }
     done();
   });

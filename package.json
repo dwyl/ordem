@@ -1,6 +1,6 @@
 {
   "name": "ordenado",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ordered task runner for node.js and browser",
   "main": "index.js",
   "directories": {
