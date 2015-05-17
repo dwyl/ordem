@@ -18,7 +18,7 @@
         return fn.next();
       };
       fn.next = function () {
-        return (index < tasks.length - 1) ? callme(index + 1): null;
+        return (index < tasks.length - 1) ? callme(index + 1) : null;
       };
       return fn;
     };

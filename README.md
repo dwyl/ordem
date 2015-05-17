@@ -29,7 +29,7 @@ Lets you run a series of JavaScript functions/methods in a specific order using 
 Tested in node. [![Node version](https://img.shields.io/node/v/ordenado.svg?style=flat)](http://nodejs.org/download/)
 [![Build Status](https://travis-ci.org/dwyl/ordenado.svg)](https://travis-ci.org/dwyl/ordenado)
 
-and browsers/devices:
+and browsers/devices: https://github.com/dwyl/ordenado/issues/8
 
 
 ## How?
@@ -66,7 +66,7 @@ ordenado([
 });
 ```
 
-for browser usage see: example/**index.html** 
+for browser usage see: example/**index.html**
 
 <br />
 <br />
