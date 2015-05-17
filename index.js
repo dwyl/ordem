@@ -40,8 +40,8 @@
       return callback(e);
     }
     if (!tasks.length) {
-      var e = new Error('ordenado expects at least one task (function) to run');
-      return callback(e);
+      var er = new Error('ordenado expects at least one task (function) to run');
+      return callback(er);
     }
     var wrap = function (iterator) {
       return function (err) {
