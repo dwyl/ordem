@@ -4,7 +4,7 @@
 [![Test Coverage](https://codeclimate.com/github/dwyl/ordenado/badges/coverage.svg)](https://codeclimate.com/github/dwyl/ordenado/coverage)
 [![Dependency Status](https://david-dm.org/dwyl/ordenado.svg)](https://david-dm.org/dwyl/ordenado)
 [![devDependency Status](https://david-dm.org/dwyl/ordenado/dev-status.svg)](https://david-dm.org/dwyl/ordenado#info=devDependencies)
-
+[![bitHound Score](https://www.bithound.io/github/dwyl/ordenado/badges/score.svg)](https://www.bithound.io/github/dwyl/ordenado)
 
 ![ducks-in-a-row](http://i.imgur.com/K6kGr3M.jpg)
 

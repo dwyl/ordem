@@ -36,12 +36,12 @@
       return new Error('Second argument to ordenado must be a callback function');
     }
     if (!_isArray(tasks)) {
-      var err = new Error('First argument to ordenado must be an array of functions');
-      return callback(err);
+      var e = new Error('First argument to ordenado must be an array of functions');
+      return callback(e);
     }
     if (!tasks.length) {
-      var err = new Error('ordenado expects at least one task (function) to run');
-      return callback(err);
+      var e = new Error('ordenado expects at least one task (function) to run');
+      return callback(e);
     }
     var wrap = function (iterator) {
       return function (err) {
