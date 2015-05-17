@@ -1,82 +1,76 @@
-// MIT license (by Elan Shanker) >> adapted from + comments added by us
+// inspired by async.waterfall but much simpler & tested!!
 (function(global) {
   'use strict';
 
-  /**
-   * use the fastest native method for executing a function
-   * on the next tick of the JS event loop.
-   */
-  var nextTick = function (fn) {
-    if (typeof setImmediate === 'function') {
-      setImmediate(fn);
-    } else if (typeof process !== 'undefined' && process.nextTick) {
-      process.nextTick(fn);
-    } else {
-      setTimeout(fn, 0);
-    }
+  // Array.isArray isn't universally available
+  // so we borrow from lodash https://lodash.com/docs#isArray
+  var _isArray = function(maybeArray){
+    return Object.prototype.toString.call(maybeArray) === '[object Array]';
   };
 
-  var makeIterator = function (tasks) {
-    var makeCallback = function (index) {
+  var iterator = function (tasks) {
+    var callme = function (index) {
       var fn = function () {
+        /* istanbul ignore else */
         if (tasks.length) {
           tasks[index].apply(null, arguments);
         }
         return fn.next();
       };
       fn.next = function () {
-        return (index < tasks.length - 1) ? makeCallback(index + 1): null;
+        return (index < tasks.length - 1) ? callme(index + 1) : null;
       };
       return fn;
     };
-    return makeCallback(0);
+    return callme(0);
   };
 
-  var _isArray = Array.isArray || function(maybeArray){
-    return Object.prototype.toString.call(maybeArray) === '[object Array]';
-  };
+  /**
+   * ordenado accepts two parameters:
+   * @param tasks - an array of functions to be executed in order
+   * @param callback - the callback function that will be called once!
+   */
 
   var ordenado = function (tasks, callback) {
-    callback = callback || function () {};
+    if(typeof callback !== 'function'){
+      return new Error('Second argument to ordenado must be a callback function');
+    }
     if (!_isArray(tasks)) {
       var err = new Error('First argument to ordenado must be an array of functions');
       return callback(err);
     }
     if (!tasks.length) {
-      return callback();
+      var err = new Error('ordenado expects at least one task (function) to run');
+      return callback(err);
     }
-    var wrapIterator = function (iterator) {
+    var wrap = function (iterator) {
       return function (err) {
         if (err) {
-          callback.apply(null, arguments);
-          callback = function () {};
+          callback.apply(err, arguments);
         } else {
           var args = Array.prototype.slice.call(arguments, 1);
           var next = iterator.next();
           if (next) {
-            args.push(wrapIterator(next));
+            args.push(wrap(next));
           } else {
             args.push(callback);
           }
-          nextTick(function () {
+          setTimeout(function () {
             iterator.apply(null, args);
-          });
+          },0);
         }
       };
     };
-    wrapIterator(makeIterator(tasks))();
+    wrap(iterator(tasks))();
   };
 
   /**
-   * export the module for various platforms
+   * export the module for node.js or browser!
    */
-  if (typeof define !== 'undefined' && define.amd) {
-    define([], function () {
-      return ordenado;
-    }); // RequireJS
-  } else if (typeof module !== 'undefined' && module.exports) {
-    module.exports = ordenado; // CommonJS
+  /* istanbul ignore else */
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = ordenado;  // CommonJS/Node.js require()
   } else {
-    global.asyncordenado = ordenado; // <script> (browser)
+    global.ordenado = ordenado; // Browser <script>
   }
 })(this);
