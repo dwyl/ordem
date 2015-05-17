@@ -1,5 +1,4 @@
-// inspired by Elan Shanker's async.waterfall
-// simplified and tested
+// inspired by async.waterfall but much simpler & tested!!
 (function(global) {
   'use strict';
 
@@ -10,7 +9,7 @@
   };
 
   var iterator = function (tasks) {
-    var makeCallback = function (index) {
+    var callme = function (index) {
       var fn = function () {
         /* istanbul ignore else */
         if (tasks.length) {
@@ -19,13 +18,18 @@
         return fn.next();
       };
       fn.next = function () {
-        return (index < tasks.length - 1) ? makeCallback(index + 1): null;
+        return (index < tasks.length - 1) ? callme(index + 1): null;
       };
       return fn;
     };
-    return makeCallback(0);
+    return callme(0);
   };
 
+  /**
+   * ordenado accepts two parameters:
+   * @param tasks - an array of functions to be executed in order
+   * @param callback - the callback function that will be called once!
+   */
 
   var ordenado = function (tasks, callback) {
     if(typeof callback !== 'function'){
@@ -39,7 +43,7 @@
       var err = new Error('ordenado expects at least one task (function) to run');
       return callback(err);
     }
-    var wrapIterator = function (iterator) {
+    var wrap = function (iterator) {
       return function (err) {
         if (err) {
           callback.apply(err, arguments);
@@ -47,7 +51,7 @@
           var args = Array.prototype.slice.call(arguments, 1);
           var next = iterator.next();
           if (next) {
-            args.push(wrapIterator(next));
+            args.push(wrap(next));
           } else {
             args.push(callback);
           }
@@ -57,7 +61,7 @@
         }
       };
     };
-    wrapIterator(iterator(tasks))();
+    wrap(iterator(tasks))();
   };
 
   /**
