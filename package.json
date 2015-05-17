@@ -8,8 +8,9 @@
   },
   "scripts": {
     "test": "istanbul cover test/test.js",
-    "cover": "istanbul cover test/test.js | tap-spec",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN=b359ba902e01c821decf617fb77dbb329dd70cdd823b1096ec3585cd571183c8 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info"
+    "coverage": "istanbul cover ./test/*.js && istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=b359ba902e01c821decf617fb77dbb329dd70cdd823b1096ec3585cd571183c8 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info",
+    "start": "node example/simple-static-server-for-saucelabs.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "tap-spec": "^3.0.0"
   },
   "pre-commit": [
+    "coverage",
     "codeclimate"
   ],
   "engines": {
