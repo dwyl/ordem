@@ -1,15 +1,18 @@
-# ordem
-[![Build Status](https://travis-ci.org/dwyl/ordem.svg)](https://travis-ci.org/dwyl/ordem)
-[![Maintainability](https://api.codeclimate.com/v1/badges/fdfc77b2f24582c0e792/maintainability)](https://codeclimate.com/github/dwyl/learn-tape/maintainability)
-[![Test Coverage](https://codeclimate.com/github/dwyl/ordem/badges/coverage.svg)](https://codeclimate.com/github/dwyl/ordem/coverage)
-[![Dependency Status](https://david-dm.org/dwyl/ordem.svg)](https://david-dm.org/dwyl/ordem)
-[![devDependency Status](https://david-dm.org/dwyl/ordem/dev-status.svg)](https://david-dm.org/dwyl/ordem#info=devDependencies)
+# ordem - ordered task runner
+
+[![Build Status](https://img.shields.io/travis/dwyl/ordem/master.svg?style=flat-square)](https://travis-ci.org/dwyl/ordem)
+[![codecov.io](https://img.shields.io/codecov/c/github/dwyl/ordem/master.svg?style=flat-square)](http://codecov.io/github/dwyl/ordem?branch=master)
+[![Dependencies: None!](https://david-dm.org/dwyl/ordem/status.svg?style=flat-square)](https://david-dm.org/dwyl/ordem)
+[![devDependencies Status](https://david-dm.org/dwyl/ordem/dev-status.svg?style=flat-square)](https://david-dm.org/dwyl/ordem?type=dev)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/dwyl/ordem/issues)
+[![HitCount](http://hits.dwyl.io/dwyl/ordem.svg)](http://hits.dwyl.io/dwyl/ordem)
 
 
 ![ducks-in-a-row](http://i.imgur.com/K6kGr3M.jpg)
 
-***ordem*** is a ***synchronous*** (ordered) **task runner** for Node.js and Browser  
-... *for when you need to have* "***all your ducks in a row***".
+***ordem*** is a ***synchronous*** (ordered)
+**task runner** for Node.js and Client web applications
+for when you need to run a list of functions in a specific order.
 
 
 ## Why?
