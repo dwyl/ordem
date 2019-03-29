@@ -1,6 +1,6 @@
 {
   "name": "ordem",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "simple ordered task runner for node.js and browser",
   "main": "index.js",
   "directories": {
