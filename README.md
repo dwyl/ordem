@@ -27,18 +27,6 @@ statements are called in succession,
 
 Lets you run a series of JavaScript functions/methods in a specific order and then execute a callback (*once*) at the end.
 
-***Tested*** in **node.js** [![Build Status](https://travis-ci.org/dwyl/ordem.svg)](https://travis-ci.org/dwyl/ordem) [![Node version](https://img.shields.io/node/v/ordem.svg?style=flat)](http://nodejs.org/download/)
- [![npm version](https://badge.fury.io/js/ordem.svg)](http://badge.fury.io/js/ordem)
-
-and ***ALL teh Devices/Browsers*** via
-[***SauceLabs***](https://github.com/docdis/learn-saucelabs)
-[![Sauce Test Status](https://docs.saucelabs.com/images/reference/status-images/status-passing.3a137816.png)](https://saucelabs.com/u/ordem)
-
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/nelsonic.svg)](https://saucelabs.com/u/nelsonic)
-
-
-Try it yourself: https://ordenado.herokuapp.com/
-
 
 ## How?
 
