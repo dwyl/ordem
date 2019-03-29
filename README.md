@@ -1,10 +1,9 @@
 # ordem
 [![Build Status](https://travis-ci.org/dwyl/ordem.svg)](https://travis-ci.org/dwyl/ordem)
-[![Code Climate](https://codeclimate.com/github/dwyl/ordem/badges/gpa.svg)](https://codeclimate.com/github/dwyl/ordem)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fdfc77b2f24582c0e792/maintainability)](https://codeclimate.com/github/dwyl/learn-tape/maintainability)
 [![Test Coverage](https://codeclimate.com/github/dwyl/ordem/badges/coverage.svg)](https://codeclimate.com/github/dwyl/ordem/coverage)
 [![Dependency Status](https://david-dm.org/dwyl/ordem.svg)](https://david-dm.org/dwyl/ordem)
 [![devDependency Status](https://david-dm.org/dwyl/ordem/dev-status.svg)](https://david-dm.org/dwyl/ordem#info=devDependencies)
-[![bitHound Score](https://www.bithound.io/github/dwyl/ordem/badges/score.svg)](https://www.bithound.io/github/dwyl/ordem)
 
 
 ![ducks-in-a-row](http://i.imgur.com/K6kGr3M.jpg)

@@ -1,4 +1,4 @@
-// inspired by async.waterfall but much simpler & tested!!
+// inspired by async.waterfall but much simpler no bloat!
 (function(global) {
   'use strict';
 

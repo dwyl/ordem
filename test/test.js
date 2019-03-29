@@ -1,38 +1,38 @@
-var ordenado = require('../');            // load the module
-var QUnit    = require('qunitjs');        // require QUnit and all its friends
-require('qunit-tap')(QUnit, console.log); // tell qunit-tap to use console.log for test output
+var ordenado = require('../');    // load the module
+const test = require('tap').test; // see: github.com/dwyl/learn-tape
 
-test("run module without callback function", function(assert) {
+test("run module without callback function", function(t) {
   var expected = "Second argument to ordenado must be a callback function";
   var err = ordenado('dont supply callback function');
-  assert.equal(err.message, expected, 'Expected ERROR: '+ expected);
+  t.equal(err.message, expected, 'Expected ERROR: '+ expected);
+  t.end();
 });
 
-test("run module with string in place of tasks array", function(assert) {
+test("run module with string in place of tasks array", function(t) {
 
   var expected = "First argument to ordenado must be an array of functions";
   // exercise the function with a string instead of an array
   ordenado('this should fail array checks!', function callback(err, result) {
     // result now equals 'done'
-    assert.equal(err.message, expected, 'Expected ERROR: '+ expected);
+    t.equal(err.message, expected, 'Expected ERROR: '+ expected);
+    t.end();
   });
 
 });
 
-test("run module without any tasks (expect error message)", function(assert) {
-  // var done     = assert.async(); // see: https://api.qunitjs.com/async/
+test("run module without any tasks (expect error message)", function(t) {
+  // var done     = t.async(); // see: https://api.qunitjs.com/async/
   var expected = "ordenado expects at least one task (function) to run";
 
   // exercise the function without any tasks
   ordenado([], function callback(err, result) {
-    assert.equal(err.message, expected, 'Expected: '+ expected);
-    // done();
+    t.equal(err.message, expected, 'Expected: '+ expected);
+    t.end();
   });
 });
 
 
-test("Simulate error in one of the tasks", function(assert) {
-  var done     = assert.async(); // see: https://api.qunitjs.com/async/
+test("Simulate error in one of the tasks", function(t) {
   var actual   = [];
   var expected = [ 'only one' ]; // only the first task succeeds
 
@@ -54,15 +54,14 @@ test("Simulate error in one of the tasks", function(assert) {
   ], function callback(err, result) {
     // result now equals 'done'
     // console.log(err);
-    assert.equal(err.message, 'second task failed', 'Second task failed (as expected!)');
-    assert.deepEqual(actual, expected, 'Expected: Only one task succeeded');
-    done();
+    t.equal(err.message, 'second task failed', 'Second task failed (as expected!)');
+    t.deepEqual(actual, expected, 'Expected: Only one task succeeded');
+    t.end();
   });
 });
 
 
-test("Results appear in the order we expect them", function(assert) {
-  var done     = assert.async(); // see: https://api.qunitjs.com/async/
+test("Results appear in the order we expect them", function(t) {
   var actual   = [];
   var expected = [ 'one', 'two', 'three' ];
 
@@ -87,11 +86,9 @@ test("Results appear in the order we expect them", function(assert) {
     }
     // result now equals 'done'
     for(i=0; i<actual.length; i++){
-      assert.equal(actual[i],expected[i], 'Result '+i+1 +' is ' + actual[i] +' | expected: '+ expected[i]);
+      t.equal(actual[i],expected[i], 'Result '+i+1 +' is ' + actual[i] +' | expected: '+ expected[i]);
     }
-    done();
+    t.end();
   });
 
 });
-
-QUnit.load(); // run our test suite.
